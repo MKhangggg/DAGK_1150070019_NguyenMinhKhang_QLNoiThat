@@ -12,7 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NguyenMinhKhang">
         <activity
-            android:name=".MainActivity"
+            android:name="Activity.FPassActivity"
+            android:exported="false" />
+        <activity
+            android:name="Activity.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name="Activity.forgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name="Activity.Register"
+            android:exported="false" />
+        <activity
+            android:name="Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

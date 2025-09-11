@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5"
+    android:id="@+id/main">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="center"
+      android:padding="24dp">
+
+    <!-- Tiêu đề cửa hàng -->
+    <TextView
+        android:id="@+id/tvStoreName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mua Sắm Nội Thất Tại Khang Store"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#009688"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Tiêu đề đăng nhập -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Username -->
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên đăng nhập"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Password -->
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Nút Đăng nhập -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ĐĂNG NHẬP"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Quên mật khẩu -->
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quên mật khẩu?"
+        android:textColor="#3F51B5"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Đăng ký -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Chưa có tài khoản?"
+          android:textColor="#555555"
+          android:layout_marginEnd="8dp"/>
+
+      <TextView
+          android:id="@+id/tvRegister"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Đăng ký ngay"
+          android:textColor="#FF5722"
+          android:textStyle="bold"/>
+    </LinearLayout>
+
+  </LinearLayout>
+</ScrollView>
