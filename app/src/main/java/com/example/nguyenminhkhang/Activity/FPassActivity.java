@@ -1,4 +1,4 @@
-package Activity;
+package com.example.nguyenminhkhang.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +21,8 @@ public class FPassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fpass);
 
-        etEmail = findViewById(R.id.etEmail);
-        btnReset = findViewById(R.id.btnReset);
+        etEmail = findViewById(R.id.edtEmail);
+        btnReset = findViewById(R.id.btnResetPassword);
         tvBackToLogin = findViewById(R.id.tvBackToLogin);
 
         // Xử lý nút Gửi yêu cầu

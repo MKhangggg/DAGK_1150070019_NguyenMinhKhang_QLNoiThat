@@ -1,105 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#F5F5F5"
-    android:id="@+id/main">
+    android:background="@android:color/white">
 
+  <!-- Logo + Divider -->
   <LinearLayout
-      android:layout_width="match_parent"
+      android:id="@+id/logoContainer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="60dp">
+
+    <View
+        android:layout_width="60dp"
+        android:layout_height="1dp"
+        android:background="#CCC"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="12dp"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_chair"
+        android:contentDescription="Logo"/>
+
+    <View
+        android:layout_width="60dp"
+        android:layout_height="1dp"
+        android:background="#CCC"
+        android:layout_marginStart="12dp"
+        android:layout_gravity="center_vertical"/>
+  </LinearLayout>
+
+  <!-- Hello -->
+  <TextView
+      android:id="@+id/tvHello"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Hello !"
+      android:textSize="24sp"
+      android:textColor="#444"
+      app:layout_constraintTop_toBottomOf="@id/logoContainer"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="24dp"/>
+
+  <!-- Welcome Back -->
+  <TextView
+      android:id="@+id/tvWelcome"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="WELCOME BACK"
+      android:textStyle="bold"
+      android:textSize="20sp"
+      android:textColor="#000"
+      app:layout_constraintTop_toBottomOf="@id/tvHello"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="4dp"/>
+
+  <!-- Form Login trực tiếp, không khung -->
+  <LinearLayout
+      android:id="@+id/formContainer"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:gravity="center"
-      android:padding="24dp">
+      android:padding="24dp"
+      app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Tiêu đề cửa hàng -->
-    <TextView
-        android:id="@+id/tvStoreName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mua Sắm Nội Thất Tại Khang Store"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#009688"
-        android:layout_marginBottom="12dp"/>
-
-    <!-- Tiêu đề đăng nhập -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="#333333"
-        android:layout_marginBottom="24dp"/>
-
-    <!-- Username -->
-    <EditText
-        android:id="@+id/etUsername"
+    <!-- Email -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên đăng nhập"
-        android:drawableLeft="@android:drawable/ic_menu_edit"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"
-        android:layout_marginBottom="12dp"/>
+        android:hint="Email">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/edtEmail"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password -->
-    <EditText
-        android:id="@+id/etPassword"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mật khẩu"
-        android:inputType="textPassword"
-        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"
-        android:layout_marginBottom="16dp"/>
+        android:hint="Password"
+        app:endIconMode="password_toggle"
+        android:layout_marginTop="12dp">
 
-    <!-- Nút Đăng nhập -->
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ĐĂNG NHẬP"
-        android:backgroundTint="#3F51B5"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_marginBottom="12dp"/>
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/edtPassword"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Quên mật khẩu -->
+    <!-- Forgot Password -->
     <TextView
         android:id="@+id/tvForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quên mật khẩu?"
-        android:textColor="#3F51B5"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:text="Forgot Password"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="end"/>
 
-    <!-- Đăng ký -->
-    <LinearLayout
+    <!-- Log in -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Log in"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#000"
+        android:textColor="@android:color/white"
+        app:cornerRadius="25dp"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <!-- Sign up -->
+    <TextView
+        android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Chưa có tài khoản?"
-          android:textColor="#555555"
-          android:layout_marginEnd="8dp"/>
-
-      <TextView
-          android:id="@+id/tvRegister"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Đăng ký ngay"
-          android:textColor="#FF5722"
-          android:textStyle="bold"/>
-    </LinearLayout>
-
+        android:text="SIGN UP"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"/>
   </LinearLayout>
-</ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

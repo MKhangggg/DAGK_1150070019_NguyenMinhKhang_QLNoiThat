@@ -1,4 +1,4 @@
-    package Activity;
+    package com.example.nguyenminhkhang.Activity;
 
     import android.content.Intent;
     import android.os.Bundle;
@@ -9,7 +9,7 @@
 
     public class Register extends AppCompatActivity {
 
-        TextView tvLogin;
+        TextView tvSignIn;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +17,10 @@
             setContentView(R.layout.activity_register); // gắn layout đăng ký
 
             // Ánh xạ TextView "Đăng nhập ngay"
-            tvLogin = findViewById(R.id.tvLogin);
+            tvSignIn = findViewById(R.id.tvSignIn);
 
             // Bấm vào -> chuyển sang màn hình Login
-            tvLogin.setOnClickListener(v -> {
+            tvSignIn.setOnClickListener(v -> {
                 Intent intent = new Intent(Register.this, LoginActivity.class);
                 startActivity(intent);
                 finish(); // đóng RegisterActivity để tránh quay lại bằng nút Back
