@@ -1,18 +1,19 @@
 package com.example.nguyenminhkhang.Models;
 
-public class LoginResponse {
-    private int Userid;
-    private String FullName;
-    private String Email;
-    private String message;
-    private boolean success;
+import com.google.gson.annotations.SerializedName;
 
-    public int getId() { return Userid; }
-    public String getName() { return FullName; }
-    public String getEmail() { return Email; }
-    public String getMessage() { return message; }
+public class LoginResponse {
+    @SerializedName("success")  private boolean success;
+    @SerializedName("message")  private String message;
+    @SerializedName("userId")   private int userId;
+    @SerializedName("fullName") private String fullName;
+    @SerializedName("email")    private String email;
+    @SerializedName("role")     private String role;
 
     public boolean isSuccess() { return success; }
-    public void setSuccess(boolean success) { this.success = success; }
-    public void setMessage(String message) { this.message = message; }
+    public String getMessage() { return message; }
+    public int getUserId() { return userId; }
+    public String getFullName() { return fullName; }
+    public String getEmail() { return email; }
+    public String getRole() { return role; }
 }

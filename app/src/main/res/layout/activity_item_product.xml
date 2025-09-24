@@ -32,8 +32,10 @@
         app:cardElevation="2dp">
 
       <ImageView
+          android:id="@+id/btnAddToCart"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
+          android:src="@drawable/cart_4_line_duotone"
           android:padding="6dp"
 
           app:tint="#6B7280" />

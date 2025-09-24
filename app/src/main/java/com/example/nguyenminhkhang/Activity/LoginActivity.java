@@ -15,7 +15,6 @@ import com.example.nguyenminhkhang.Network.ApiService;
 import com.example.nguyenminhkhang.Network.RetrofitClient;
 import com.example.nguyenminhkhang.R;
 
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,26 +53,55 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-
-            // Gọi API khi chắc chắn có mạng
-            ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+            ApiService apiService = RetrofitClient.getLoginService();
             LoginRequest request = new LoginRequest(email, pass);
 
             apiService.login(request).enqueue(new Callback<LoginResponse>() {
+
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                     if (response.isSuccessful() && response.body() != null) {
-                        if (response.body().isSuccess()) {
+                        LoginResponse res = response.body();
+                        if (res.isSuccess()) {
+                            int userId = res.getUserId();
+                            if (userId <= 0) {
+                                Toast.makeText(LoginActivity.this, "⚠️ UserId không hợp lệ từ server", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, Home.class));
+
+                            // 👇 Lấy role và chuẩn hoá
+                            String role = res.getRole() == null ? "" : res.getRole().trim().toLowerCase();
+
+                            // 👇 Điều hướng theo role — chỉ thay đổi đoạn này
+                            Intent intent;
+                            switch (role) {
+                                case "admin":
+                                    intent = new Intent(LoginActivity.this, AdminHome.class);
+                                    break;
+                                case "user":
+                                default:
+                                    intent = new Intent(LoginActivity.this, Home.class);
+                                    break;
+                            }
+
+                            // Truyền kèm thông tin như cũ + role
+                            intent.putExtra("userId", userId);
+                            intent.putExtra("fullName", res.getFullName());
+                            intent.putExtra("email", res.getEmail());
+                            intent.putExtra("role", res.getRole());
+
+                            startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, res.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(LoginActivity.this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                     }
                 }
+
 
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {

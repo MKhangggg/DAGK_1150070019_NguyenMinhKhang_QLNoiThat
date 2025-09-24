@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Hình ảnh bên trái (sẽ load từ API bằng Glide/Picasso) -->
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/desc_product_image" />
+
+    <!-- Cột chữ bên phải -->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <!-- Tên sản phẩm -->
+        <TextView
+            android:id="@+id/txtProductName"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Giá sản phẩm -->
+        <TextView
+            android:id="@+id/txtPrice"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@id/txtProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Layout cộng/trừ số lượng -->
+        <LinearLayout
+            android:id="@+id/layoutQuantity"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="−"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="40dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:background="@drawable/bg_quantity_box"
+                android:text="1"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="57dp"
+                android:layout_height="35dp"
+                android:backgroundTint="@android:color/holo_green_light"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- Icon thùng rác -->
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:src="@drawable/delete_lines_20_regular"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:padding="4dp"/>
+
+    </RelativeLayout>
+</LinearLayout>

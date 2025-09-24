@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NguyenMinhKhang</string>
+    <string name="desc_product_image">Ảnh sản phẩm</string>
+    <string name="delete">Xóa</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>

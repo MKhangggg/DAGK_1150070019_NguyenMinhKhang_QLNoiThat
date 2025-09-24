@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/cartToolbar"
+      android:layout_width="match_parent"
+      android:layout_height="36dp"
+      android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+      android:title="Giỏ hàng"
+      android:titleTextColor="#111827" />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerCart"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"/>
+
+  <Button
+      android:id="@+id/btnPlaceOrder"
+      android:text="Đặt hàng"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="#111827" android:state_checked="true"/>
-    <item android:color="#9CA3AF"/>
+    <!-- Màu khi chọn -->
+    <item android:color="@color/purple_500" android:state_checked="true"/>
+    <!-- Màu khi không chọn -->
+    <item android:color="@android:color/darker_gray"/>
+    <item android:state_checked="true" android:color="#111827"/>
+    <item android:color="#6B7280"/>
 </selector>

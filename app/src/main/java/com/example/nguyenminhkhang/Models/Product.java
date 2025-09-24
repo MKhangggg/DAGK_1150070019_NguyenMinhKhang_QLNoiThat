@@ -1,18 +1,28 @@
 package com.example.nguyenminhkhang.Models;
 
-public class Product {
-    private String name;
-    private String price;
-    private int imageResId; // drawable resource
+import com.google.gson.annotations.SerializedName;
 
-    public Product(String name, String price, int imageResId) {
-        this.name = name;
-        this.price = price;
-        this.imageResId = imageResId;
-    }
+public class Product {
+    private int id;
+    private String name;
+    private String description;
+    private double price;
+    private String imageUrl;
+
+    // Getter
+    public int getId() {     return id; }
+    public void setId(int id) { this.id = id; }
 
     public String getName() { return name; }
-    public String getPrice() { return price; }
-    public int getImageResId() { return imageResId; }
+    public void setName(String name) { this.name = name; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }
 
