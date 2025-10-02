@@ -22,10 +22,16 @@ import retrofit2.http.Path;
 
 public interface ApiService {
     // Nếu swagger hiển thị là: https://xxx/api/User/login
+    @GET("api/User")
+    Call<List<User>> getUsers();
     @POST("api/User/login")
     Call<LoginResponse> login(@Body LoginRequest request);
     @POST("api/User/register")
     Call<RegisterResponse> register(@Body RegisterRequest request);
+    @PUT("api/User/{id}")
+    Call<User> updateUser(@Path("id") int id, @Body User user);
+    @DELETE("api/User/{id}")
+    Call<Void> deleteUser(@Path("id") int id);
     @GET("api/Product")
     Call<List<Product>> getProducts();
     @POST("api/Product")

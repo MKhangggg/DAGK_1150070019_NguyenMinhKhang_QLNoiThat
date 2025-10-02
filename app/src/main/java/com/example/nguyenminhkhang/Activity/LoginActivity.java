@@ -39,7 +39,11 @@ public class LoginActivity extends AppCompatActivity {
         tvSignUp.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, Register.class));
         });
-
+        // R ánh xạ
+        // Bắt sự kiện: setonClickListener
+        // Mở activity: Intent
+        // startActivity
+        //“Tôi (context) đang ở màn hình A, tôi muốn mở màn hình B (class)
         tvForgetPassword.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, FPassActivity.class));
         });
@@ -73,6 +77,10 @@ public class LoginActivity extends AppCompatActivity {
 
                             // 👇 Lấy role và chuẩn hoá
                             String role = res.getRole() == null ? "" : res.getRole().trim().toLowerCase();
+                            // Nếu role không hợp lệ, mặc định là "user"
+                            //Trim lấy bỏ khoảng trắng thừa
+                            //ToLowerCase chuyển thành chữ thường
+                            //null? : là toán tử 3 ngôi, hoạt động như if-else
 
                             // 👇 Điều hướng theo role — chỉ thay đổi đoạn này
                             Intent intent;

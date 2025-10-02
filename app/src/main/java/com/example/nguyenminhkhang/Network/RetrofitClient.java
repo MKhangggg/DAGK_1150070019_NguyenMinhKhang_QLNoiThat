@@ -11,11 +11,13 @@ public class RetrofitClient {
     private static Retrofit retrofit;
 
     // Không có khoảng trắng thừa
+    private static final String BASE_URL_USER = "http://10.0.2.2:7171/";
     private static final String BASE_URL_LOGIN = "http://10.0.2.2:7171/";
     public static final String BASE_URL_REGISTER = "http://10.0.2.2:7171/";
     public static final String BASE_URL_PRODUCT = "http://10.0.2.2:7171/";
     public static final String BASE_URL_CART = "http://10.0.2.2:7171/";
     private static Retrofit retrofitLogin;
+    private static Retrofit retrofitUser;
     private static Retrofit retrofitProduct;
     private static Retrofit retrofitCart;
     private static Retrofit retrofitRegister;
@@ -46,6 +48,16 @@ public class RetrofitClient {
                     .build();
         }
         return retrofitProduct.create(ApiService.class);
+    }
+
+    public static ApiService getUserService() {
+        if (retrofitUser == null) {
+            retrofitUser = new Retrofit.Builder()
+                    .baseUrl(BASE_URL_USER)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofitUser.create(ApiService.class);
     }
 
     // Login

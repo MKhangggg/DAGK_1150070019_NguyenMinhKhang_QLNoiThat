@@ -29,7 +29,7 @@
         android:id="@+id/logo"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/ic_chair"
+        android:src="@mipmap/logo"
         android:contentDescription="Logo"/>
 
     <View

@@ -1,5 +1,6 @@
 package com.example.nguyenminhkhang.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -106,6 +107,7 @@ public class AdminHome extends AppCompatActivity implements NavigationView.OnNav
         }
     }
 
+    @SuppressLint("GestureBackNavigation")
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
